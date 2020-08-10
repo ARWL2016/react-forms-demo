@@ -4,6 +4,9 @@ import List from "./List";
 import { Person } from "../core/entities/Person";
 import { Header } from "semantic-ui-react";
 import { TITLES, GENDERS } from "../core/data";
+import { getPersonList, savePerson } from "../core/api";
+import { pick } from "../core/utils";
+import { v4 as uuidv4 } from "uuid";
 
 class BasicForm extends Component {
   titles = TITLES;
@@ -13,8 +16,18 @@ class BasicForm extends Component {
     title: "",
     name: "",
     gender: "",
-    public: false,
-    isEdit: false,
+    isPublic: false,
+    id: null,
+    personList: [],
+  };
+
+  componentDidMount() {
+    this.updatePersonList();
+  }
+
+  updatePersonList = () => {
+    const personList = getPersonList();
+    this.setState({ personList });
   };
 
   onNew = () => {
@@ -23,14 +36,13 @@ class BasicForm extends Component {
       name: "",
       gender: "",
       public: false,
-      isEdit: false,
+      id: null,
     });
   };
 
   onEdit = (person: Person) => {
     this.setState({
       ...person,
-      isEdit: true,
     });
   };
 
@@ -47,22 +59,40 @@ class BasicForm extends Component {
   };
 
   onPublicChange = (e: SyntheticEvent<HTMLInputElement>) => {
-    this.setState({ public: e.currentTarget.checked });
+    this.setState({ isPublic: e.currentTarget.checked });
   };
 
   onSubmit = (e) => {
     console.log(e);
-    alert(JSON.stringify(this.state));
+    const formValue = pick(this.state, [
+      "title",
+      "name",
+      "gender",
+      "isPublic",
+      "id",
+    ]) as Person;
+
+    if (formValue.id === null) {
+      formValue.id = uuidv4();
+    }
+    savePerson(formValue);
+    this.updatePersonList();
+    this.onNew();
   };
 
   render() {
     return (
       <React.Fragment>
-        <List onEdit={this.onEdit} onNew={this.onNew} />
+        
+        <List
+          onEdit={this.onEdit}
+          onNew={this.onNew}
+          personList={this.state.personList}
+        />
 
         <form>
           <Header as="h3">
-            {this.state.isEdit ? "Edit Person" : "Add Person"}
+            {this.state.id ? "Edit Person" : "Add Person"}
           </Header>
           <div className="form-control">
             <label>Title</label>
@@ -112,7 +142,7 @@ class BasicForm extends Component {
               type="checkbox"
               value="true"
               onChange={this.onPublicChange}
-              checked={this.state.public}
+              checked={this.state.isPublic}
             />
           </div>
         </form>

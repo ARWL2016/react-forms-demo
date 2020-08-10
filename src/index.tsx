@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css'
+import { init } from './core/api';
+
+init();
 
 ReactDOM.render(
   <React.StrictMode>

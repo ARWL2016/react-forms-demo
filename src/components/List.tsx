@@ -2,38 +2,18 @@ import React from "react";
 import { Table } from "semantic-ui-react";
 import { Person } from "../core/entities/Person";
 
-export const DATA = [
-  new Person("Mr", "John Richardson", "Male", true),
-  new Person("Ms", "Samanthan Donahue", "Female", false),
-];
-
 interface Props {
   onEdit: (p: Person) => void;
   onNew: () => void;
+  personList: Person[]
 }
 
-interface State {
-  data: Person[];
-}
+const List: React.FC<any> = (props: Props) => {
+  console.log(props.personList);
 
-class List extends React.Component<Props, State> {
-  constructor(props) {
-    super(props);
-    console.log(props);
-
-    this.state = {
-      data: [],
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ data: DATA });
-  }
-
-  render() {
     return (
       <div style={{'maxWidth': '800px'}}>
-        <button className="ui primary button" onClick={this.props.onNew}>Create New</button>
+        <button className="ui primary button" onClick={props.onNew}>Create New</button>
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -45,10 +25,10 @@ class List extends React.Component<Props, State> {
           </Table.Header>
 
           <Table.Body>
-            {this.state.data.map((person: Person) => (
+            {props.personList.map((person: Person) => (
               <Table.Row
                 key={person.name}
-                onClick={() => this.props.onEdit(person)}
+                onClick={() => props.onEdit(person)}
               >
                 <Table.Cell>{person.title}</Table.Cell>
                 <Table.Cell>{person.name}</Table.Cell>
@@ -62,7 +42,6 @@ class List extends React.Component<Props, State> {
         </Table>
       </div>
     );
-  }
 }
 
 export default List;
