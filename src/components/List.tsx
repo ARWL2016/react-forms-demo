@@ -27,7 +27,7 @@ const List: React.FC<any> = (props: Props) => {
           <Table.Body>
             {props.personList.map((person: Person) => (
               <Table.Row
-                key={person.name}
+                key={person.id}
                 onClick={() => props.onEdit(person)}
               >
                 <Table.Cell>{person.title}</Table.Cell>

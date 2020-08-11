@@ -1,14 +1,14 @@
 import React, { Component, SyntheticEvent } from "react";
-import "./BasicForm.scss";
-import List from "./List";
-import { Person } from "../core/entities/Person";
-import { Header } from "semantic-ui-react";
-import { TITLES, GENDERS } from "../core/data";
-import { getPersonList, savePerson } from "../core/api";
-import { pick } from "../core/utils";
+import "./Basic.scss";
+import List from "../List";
+import { Person } from "../../core/entities/Person";
+import { Header, Message, Button } from "semantic-ui-react";
+import { TITLES, GENDERS } from "../../core/data/static-data";
+import { getPersonList, savePerson, deletePerson } from "../../core/data/api";
+import { pick } from "../../core/utils";
 import { v4 as uuidv4 } from "uuid";
 
-class BasicForm extends Component {
+class Basic extends Component {
   titles = TITLES;
   genders = GENDERS;
 
@@ -46,6 +46,14 @@ class BasicForm extends Component {
     });
   };
 
+  onDelete = () => {
+    if (this.state.id) {
+      deletePerson(this.state.id!);
+      this.updatePersonList();
+      this.onNew();
+    }
+  };
+
   onTitleChange = (e: SyntheticEvent<HTMLSelectElement>) => {
     this.setState({ title: e.currentTarget.value });
   };
@@ -62,8 +70,7 @@ class BasicForm extends Component {
     this.setState({ isPublic: e.currentTarget.checked });
   };
 
-  onSubmit = (e) => {
-    console.log(e);
+  onSubmit = () => {
     const formValue = pick(this.state, [
       "title",
       "name",
@@ -82,18 +89,29 @@ class BasicForm extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        
+      <div className="component-container">
         <List
           onEdit={this.onEdit}
           onNew={this.onNew}
           personList={this.state.personList}
         />
 
+        <Message info>
+          <Message.Header>Basic Form</Message.Header>
+          <p>
+            This form is written in a React class based component, using pure
+            HTML inputs. The table and buttons use Semantic-UI. Since there is
+            no validation, empty records can be created. Records are persisted
+            to local storage only.
+          </p>
+          <p>Click Create New or click on the table to edit a record.</p>
+        </Message>
+
         <form>
           <Header as="h3">
             {this.state.id ? "Edit Person" : "Add Person"}
           </Header>
+
           <div className="form-control">
             <label>Title</label>
             <select
@@ -146,17 +164,21 @@ class BasicForm extends Component {
             />
           </div>
         </form>
+
         <div className="button-container">
-          <button className="ui button" onClick={this.onNew}>
+          <Button color="red" onClick={this.onDelete}>
+            Delete
+          </Button>
+          <Button color="grey" onClick={this.onNew}>
             Cancel
-          </button>
-          <button className="ui primary button" onClick={this.onSubmit}>
-            Submit
-          </button>
+          </Button>
+          <Button color="blue" onClick={this.onSubmit}>
+            Save
+          </Button>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
 
-export default BasicForm;
+export default Basic;

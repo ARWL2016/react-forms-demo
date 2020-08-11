@@ -1,4 +1,4 @@
-import { Person } from "./entities/Person";
+import { Person } from "../entities/Person";
 
 const personStore = "react_forms_demo_person_store";
 
@@ -31,11 +31,19 @@ export function savePerson(newPerson: Person) {
 
   const index = list.findIndex((person) => person.id === newPerson.id);
 
-  if (index) {
+  if (index > -1) {
     list[index] = newPerson;
   } else {
     list.push(newPerson);
   }
 
   window.localStorage.setItem(personStore, JSON.stringify(list));
+}
+
+export function deletePerson(id: string) {
+  const list = getPersonList();
+
+  const newList = list.filter((person) => person.id !== id);
+
+  window.localStorage.setItem(personStore, JSON.stringify(newList));
 }

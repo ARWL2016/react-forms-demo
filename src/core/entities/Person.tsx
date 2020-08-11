@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export class Person {
 
-    id: string;
+    id: string | null
     title: Title;
     name: string;
     gender: Gender;

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Menu, MenuItemProps } from "semantic-ui-react";
-import BasicForm from "./components/BasicForm";
 import Formik from "./components/Formik";
 import Hooks from "./components/Hooks";
+import Basic from "./components/Basic/Basic";
+import Validation from "./components/Validation/Validation";
 
 export interface MenuArgs {
   active: boolean;
@@ -13,8 +14,10 @@ export interface MenuArgs {
 
 class App extends Component {
   state = {
-    activeItem: "Basic Form",
+    activeItem: "With Validation",
   };
+
+  menus = ['Basic Form', 'With Validation', 'Formik', 'Hooks']
 
   handleItemClick = (data: MenuItemProps) => {
     console.log(data);
@@ -26,26 +29,20 @@ class App extends Component {
     return (
       <div>
         <Menu attached="top" tabular>
-          <Menu.Item
-            name="Basic Form"
-            active={activeItem === "Basic Form"}
+          {this.menus.map(menu => (
+            <Menu.Item
+            key={menu}
+            name={menu}
+            active={activeItem === menu}
             onClick={(e, data) => this.handleItemClick(data)}
           />
-          <Menu.Item
-            name="Formik"
-            active={activeItem === "Formik"}
-            onClick={(e, data) => this.handleItemClick(data)}
-          />
-
-          <Menu.Item
-            name="Hooks"
-            active={activeItem === "Hooks"}
-            onClick={(e, data) => this.handleItemClick(data)}
-          />
+          ) )}
+         
         </Menu>
 
         <div className="content-container">
-          {activeItem === "Basic Form" && <BasicForm />}
+          {activeItem === "Basic Form" && <Basic />}
+          {activeItem === "With Validation" && <Validation />}
           {activeItem === "Formik" && <Formik />}
           {activeItem === "Hooks" && <Hooks />}
         </div>
