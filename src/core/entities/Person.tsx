@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 export class Person {
 
     id: string | null
-    title: Title;
+    title: Title | string;
     name: string;
     gender: Gender;
     isPublic: boolean;

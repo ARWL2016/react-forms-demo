@@ -105,6 +105,7 @@ class Basic extends Component {
             to local storage only.
           </p>
           <p>Click Create New or click on the table to edit a record.</p>
+          <a href="https://github.com/ARWL2016/react-forms-demo/blob/master/src/components/Basic/Basic.tsx" target="_blank" rel="noopener noreferrer">View Source</a>
         </Message>
 
         <form>

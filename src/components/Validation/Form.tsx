@@ -19,10 +19,6 @@ export class FormControl<T> {
 
 export type FormControlConfig = [any, boolean?];
 
-export interface FormConfig {
-    [key: string]: FormControlConfig;
-}
-
 export function updateFormControl(control: FormControl<any>, value: any): FormControl<any> {
     const clone = Object.assign({}, control);
 

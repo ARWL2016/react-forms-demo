@@ -9,7 +9,7 @@ interface Props {
 }
 
 const List: React.FC<any> = (props: Props) => {
-  console.log(props.personList);
+  // console.log(props.personList);
 
     return (
       <div style={{'maxWidth': '800px'}}>

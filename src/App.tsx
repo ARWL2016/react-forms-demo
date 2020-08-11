@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 import { Menu, MenuItemProps } from "semantic-ui-react";
 import Formik from "./components/Formik";
-import Hooks from "./components/Hooks";
 import Basic from "./components/Basic/Basic";
 import Validation from "./components/Validation/Validation";
+import { Hooks } from "./components/Hooks/Hooks";
 
 export interface MenuArgs {
   active: boolean;
@@ -14,7 +14,7 @@ export interface MenuArgs {
 
 class App extends Component {
   state = {
-    activeItem: "With Validation",
+    activeItem: "Hooks",
   };
 
   menus = ['Basic Form', 'With Validation', 'Formik', 'Hooks']

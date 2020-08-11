@@ -19,7 +19,7 @@ interface State {
   dirty: boolean;
 }
 
-class Validation extends Component {
+class Validation extends Component<{}, State> {
   titles = TITLES;
   genders = GENDERS;
 
@@ -151,6 +151,7 @@ class Validation extends Component {
         <Message info>
           <Message.Header>Form with Validation</Message.Header>
           <p>This form tracks the value, validity, and clean / dirty state of each control so that validation warnings can be shown and the buttons can be disabled.</p>
+          <a href="https://github.com/ARWL2016/react-forms-demo/blob/master/src/components/Validation/Validation.tsx" target="_blank" rel="noopener noreferrer">View Source</a>
         </Message>
 
         <form onChange={this.onFormChange}>
