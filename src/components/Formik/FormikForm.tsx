@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { savePerson, getPersonList, deletePerson } from "../../core/data/api";
 import { Person } from "../../core/entities/Person";
 import List from "../List";
+import './FormikForm.scss';
 
 const FormikForm = () => {
   const [personList, setPersonList] = useState<Person[]>([]);
@@ -158,7 +159,7 @@ const FormikForm = () => {
   }
 
   return (
-    <div>
+    <div className="component-container">
       <List onEdit={onEdit} onNew={onNew} personList={personList} />
 
       <Message info>
