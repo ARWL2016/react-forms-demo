@@ -17,7 +17,7 @@ class App extends Component {
     activeItem: "Basic Form",
   };
 
-  menus = ['Basic Form', 'With Validation', 'Formik', 'Hooks']
+  menus = ['Basic Form', 'With Validation', 'Hooks', 'Formik'];
 
   handleItemClick = (data: MenuItemProps) => {
     console.log(data);
