@@ -14,7 +14,7 @@ export interface MenuArgs {
 
 class App extends Component {
   state = {
-    activeItem: "Formik",
+    activeItem: "Basic Form",
   };
 
   menus = ['Basic Form', 'With Validation', 'Formik', 'Hooks']
@@ -43,8 +43,8 @@ class App extends Component {
         <div className="content-container">
           {activeItem === "Basic Form" && <Basic />}
           {activeItem === "With Validation" && <Validation />}
-          {activeItem === "Formik" && <FormikForm />}
           {activeItem === "Hooks" && <Hooks />}
+          {activeItem === "Formik" && <FormikForm />}
         </div>
 
       </div>
