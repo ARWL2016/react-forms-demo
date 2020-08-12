@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/react-forms-demo/static/css/main.f54fcd32.chunk.css",
-    "main.js": "/react-forms-demo/static/js/main.d928cfd1.chunk.js",
-    "main.js.map": "/react-forms-demo/static/js/main.d928cfd1.chunk.js.map",
+    "main.css": "/react-forms-demo/static/css/main.2fe66fb6.chunk.css",
+    "main.js": "/react-forms-demo/static/js/main.9d7ba890.chunk.js",
+    "main.js.map": "/react-forms-demo/static/js/main.9d7ba890.chunk.js.map",
     "runtime-main.js": "/react-forms-demo/static/js/runtime-main.37768cb9.js",
     "runtime-main.js.map": "/react-forms-demo/static/js/runtime-main.37768cb9.js.map",
     "static/css/2.4cec624c.chunk.css": "/react-forms-demo/static/css/2.4cec624c.chunk.css",
-    "static/js/2.85abd971.chunk.js": "/react-forms-demo/static/js/2.85abd971.chunk.js",
-    "static/js/2.85abd971.chunk.js.map": "/react-forms-demo/static/js/2.85abd971.chunk.js.map",
+    "static/js/2.bf0561f3.chunk.js": "/react-forms-demo/static/js/2.bf0561f3.chunk.js",
+    "static/js/2.bf0561f3.chunk.js.map": "/react-forms-demo/static/js/2.bf0561f3.chunk.js.map",
     "index.html": "/react-forms-demo/index.html",
-    "precache-manifest.afb549b2d419dd7298346b2751811c3e.js": "/react-forms-demo/precache-manifest.afb549b2d419dd7298346b2751811c3e.js",
+    "precache-manifest.df11b1d9b3a5cee74e9d3436cd77643b.js": "/react-forms-demo/precache-manifest.df11b1d9b3a5cee74e9d3436cd77643b.js",
     "service-worker.js": "/react-forms-demo/service-worker.js",
     "static/css/2.4cec624c.chunk.css.map": "/react-forms-demo/static/css/2.4cec624c.chunk.css.map",
-    "static/css/main.f54fcd32.chunk.css.map": "/react-forms-demo/static/css/main.f54fcd32.chunk.css.map",
-    "static/js/2.85abd971.chunk.js.LICENSE.txt": "/react-forms-demo/static/js/2.85abd971.chunk.js.LICENSE.txt",
+    "static/css/main.2fe66fb6.chunk.css.map": "/react-forms-demo/static/css/main.2fe66fb6.chunk.css.map",
+    "static/js/2.bf0561f3.chunk.js.LICENSE.txt": "/react-forms-demo/static/js/2.bf0561f3.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/react-forms-demo/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.37768cb9.js",
     "static/css/2.4cec624c.chunk.css",
-    "static/js/2.85abd971.chunk.js",
-    "static/css/main.f54fcd32.chunk.css",
-    "static/js/main.d928cfd1.chunk.js"
+    "static/js/2.bf0561f3.chunk.js",
+    "static/css/main.2fe66fb6.chunk.css",
+    "static/js/main.9d7ba890.chunk.js"
   ]
 }
