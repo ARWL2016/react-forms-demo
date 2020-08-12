@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Menu, MenuItemProps } from "semantic-ui-react";
-import Formik from "./components/Formik";
 import Basic from "./components/Basic/Basic";
 import Validation from "./components/Validation/Validation";
 import { Hooks } from "./components/Hooks/Hooks";
+import FormikForm from "./components/Formik/FormikForm";
 
 export interface MenuArgs {
   active: boolean;
@@ -14,7 +14,7 @@ export interface MenuArgs {
 
 class App extends Component {
   state = {
-    activeItem: "Hooks",
+    activeItem: "Formik",
   };
 
   menus = ['Basic Form', 'With Validation', 'Formik', 'Hooks']
@@ -43,7 +43,7 @@ class App extends Component {
         <div className="content-container">
           {activeItem === "Basic Form" && <Basic />}
           {activeItem === "With Validation" && <Validation />}
-          {activeItem === "Formik" && <Formik />}
+          {activeItem === "Formik" && <FormikForm />}
           {activeItem === "Hooks" && <Hooks />}
         </div>
 

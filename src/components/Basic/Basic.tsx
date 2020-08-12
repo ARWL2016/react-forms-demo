@@ -116,7 +116,6 @@ class Basic extends Component {
           <div className="form-control">
             <label>Title</label>
             <select
-              name="cars"
               value={this.state.title}
               onChange={this.onTitleChange}
             >
